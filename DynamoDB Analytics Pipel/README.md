@@ -1,4 +1,6 @@
-# 🚀 DynamoDB Analytics Pipeline
+# 🚀 DynamoDB Data Flow
+
+
 
 This project enables seamless visualization of **DynamoDB data** in **Amazon QuickSight** using **AWS Athena** and **AWS Lambda**. It integrates several AWS services into a powerful and cost-effective **data analytics pipeline**.
 
