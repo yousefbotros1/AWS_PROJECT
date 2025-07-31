@@ -1,82 +1,88 @@
-🛠️ Simple Web Application Deployment on AWS
+# 🛠️ Simple Web Application Deployment on AWS
 
-This project showcases a highly available and scalable web application architecture deployed on AWS. The infrastructure is designed for resilience, scalability, and security using native AWS services.
-🧱 Architecture Components
+This project demonstrates the deployment of a **highly available**, **scalable**, and **secure web application** using native AWS services. The infrastructure is built for **resilience, monitoring, and automation** — ideal for production-grade applications.
 
-    VPC: Isolated network environment with public and private subnets.
+---
 
-    Public Subnet:
+## 🧱 Architecture Overview
 
-        Application Load Balancer (ALB): Distributes incoming traffic across multiple EC2 instances in different Availability Zones.
+The system uses **public and private subnets** inside a **Virtual Private Cloud (VPC)** to separate web servers and databases for security and control.
 
-        Auto Scaling Group: Automatically adjusts the number of EC2 instances based on traffic load, providing high availability and fault tolerance.
+### 🔹 Public Subnet
+- **Application Load Balancer (ALB)**: Distributes incoming traffic across EC2 instances in multiple Availability Zones.
+- **Auto Scaling Group (ASG)**: Dynamically increases or decreases the number of EC2 instances based on demand.
 
-    Private Subnet:
+### 🔹 Private Subnet
+- **Amazon RDS (Multi-AZ)**: Highly available relational database (MySQL/PostgreSQL), automatically backed up and replicated across Availability Zones.
 
-        Amazon RDS (Multi-AZ): Managed relational database service with high availability, deployed across multiple Availability Zones.
+### 🔹 Security & Monitoring
+- **Security Groups**: Fine-grained firewall rules to control traffic to EC2 and RDS.
+- **Amazon CloudWatch**: Real-time monitoring of system performance and logs.
+- **Amazon SNS**: Sends email alerts to developers based on triggered CloudWatch alarms.
 
-    Security Groups: Control traffic to EC2 instances and RDS databases.
+---
 
-    Monitoring and Notifications:
+### 📐 Architecture Diagram
 
-        CloudWatch Alarms: Triggered by performance metrics.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0e4ec2e0-05ec-47d0-9e37-f664896a8bb1" width="700">
+</p>
 
-        SNS (Simple Notification Service): Sends notifications (e.g., email alerts) to developers on infrastructure events.
+---
 
-🔁 High Availability & Scalability
+## 🔁 High Availability & Scalability
 
-    Utilizes Auto Scaling Groups across three Availability Zones for load distribution and fault tolerance.
+- 🌐 **Multi-AZ Load Balancing** ensures traffic is distributed evenly across zones.
+- 📈 **Auto Scaling** adjusts EC2 instance count based on traffic spikes or failures.
+- 🧮 **Amazon RDS Multi-AZ** provides automatic failover support for the database layer.
 
-    Amazon RDS Multi-AZ ensures database availability even during zone failures.
+---
 
-👥 Users & Access
+## 👥 Users & Access Flow
 
-    End users access the app via the Application Load Balancer.
+1. **End Users** → access the website via the **Application Load Balancer**.
+2. **Developers** → receive infrastructure alerts via **SNS emails** for real-time monitoring and debugging.
 
-    Developers receive monitoring alerts via SNS and Email for proactive troubleshooting.
+---
 
-![Simple APP Deployment  drawio](https://github.com/user-attachments/assets/0e4ec2e0-05ec-47d0-9e37-f664896a8bb1)
+## ☁️ AWS Services Used
 
+| AWS Service         | Role in Architecture |
+|---------------------|----------------------|
+| **Amazon EC2**      | Hosts the application code within auto-scaled instances |
+| **Application Load Balancer (ALB)** | Routes incoming traffic to healthy EC2s |
+| **Auto Scaling Group (ASG)** | Ensures compute scales based on demand |
+| **Amazon RDS (Multi-AZ)** | Provides a fault-tolerant, managed database |
+| **Amazon VPC**      | Isolated networking environment with subnets |
+| **AWS IAM**         | Manages secure role-based access between services |
+| **Amazon CloudWatch** | Monitors system health and performance |
+| **Amazon SNS**      | Sends email notifications to developers |
 
-☁️ Key AWS Services Used
+---
 
-    Amazon EC2
-    Hosts the web application with compute instances launched in an Auto Scaling Group.
+## 🌐 Web Application Screenshot
 
-    Application Load Balancer (ALB)
-    Automatically distributes incoming application traffic across multiple EC2 instances in different Availability Zones.
+The deployed web app is a **personal portfolio** site with the following sections:
 
-    Auto Scaling Group (ASG)
-    Maintains application availability by dynamically scaling the number of EC2 instances based on demand and health checks.
+- **WELCOME**
+- **ABOUT**
+- **SERVICES**
+- **RESUME**
+- **WORKS**
+- **TESTIMONIALS**
+- **CONTACT**
 
-    Amazon RDS (Optional)
-    Managed relational database service (MySQL/PostgreSQL) deployed in Multi-AZ mode for high availability and failover support.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7cdc4490-0039-42d6-8e60-6fc67258799e" width="700">
+</p>
 
-    AWS IAM (Identity and Access Management)
-    Enforces role-based access control for secure interactions between services (e.g., EC2 access to CloudWatch).
+---
 
-    Amazon CloudWatch & SNS
-    Monitors application metrics and system logs, and sends notifications or alerts through SNS for proactive incident response.
+## 🧩 Folder Structure (optional)
 
-
-he screenshot displays a personal portfolio website for Shreyas Shripad Kulkarni, a pre-final year BTech student in Information Technology.
-🔹 Key Sections:
-
-    WELCOME
-
-    ABOUT
-
-    SERVICES
-
-    RESUME
-
-    WORKS
-
-    TESTIMONIALS
-
-    CONTACT
-
-
-![Screenshot from 2025-05-17 20-41-22](https://github.com/user-attachments/assets/7cdc4490-0039-42d6-8e60-6fc67258799e)
-
-    
+```plaintext
+Simple-WebApp-AWS/
+├── cloudformation/         # Infrastructure-as-code templates
+├── app/                    # Web application source code
+├── screenshots/            # Screenshots for documentation
+├── README.md
