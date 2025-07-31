@@ -1,32 +1,68 @@
+# 🚀 DynamoDB Analytics Pipeline
 
-## Overview
-This project enables seamless visualization of **DynamoDB data** in **Amazon QuickSight** using **AWS Athena** and **Lambda**. It integrates various AWS services to build an efficient data analytics pipeline.
-![Screenshot 2025-03-29 141153](https://github.com/user-attachments/assets/e19ff0c7-28c8-4878-b6c6-d0d7b501efdb)
-## Technologies Used
-- **Amazon DynamoDB**
-- **AWS Lambda**
-- **AWS Athena**
-- **Amazon QuickSight**
-- **AWS Glue**
-- **Amazon S3**
+This project enables seamless visualization of **DynamoDB data** in **Amazon QuickSight** using **AWS Athena** and **AWS Lambda**. It integrates several AWS services into a powerful and cost-effective **data analytics pipeline**.
 
+---
 
+## 📌 Overview
 
-## Features
-- **DynamoDB Table Setup** with partition & sort keys
-- **AWS Athena Integration** using Lambda DynamoDB Connector
-- **S3 Spill Location** for Athena query results
-- **IAM Role Configuration** for QuickSight access
-- **Data Import & Visualization** in QuickSight (SPICE & Direct Query)
-- ![Screenshot 2025-03-29 143622](https://github.com/user-attachments/assets/683ae8b3-f6e9-492b-81c9-292ad3cf05be)
-- **Custom Dashboards** with Donut Charts, Bar Charts, and Interactive Tables
-- **Live Data Updates** by syncing DynamoDB changes with QuickSight
-- ![Screenshot 2025-03-29 143612](https://github.com/user-attachments/assets/a8c4de0c-c85c-4f4b-ad2a-3f255b8cc01a)
+This pipeline connects your operational data stored in **Amazon DynamoDB** with **Amazon QuickSight**, allowing for **real-time dashboards** and **interactive analytics**. Using **Athena** (via the DynamoDB connector) and **S3** as an intermediate store, the pipeline is efficient and affordable — costing around **$1.30** total to run.
 
-- **Cost Efficiency**: Entire setup runs at a minimal cost (**$1.30**)
-- 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e19ff0c7-28c8-4878-b6c6-d0d7b501efdb" width="600">
+</p>
 
-![Screenshot 2025-03-29 143617](https://github.com/user-attachments/assets/4a9749d5-1b4f-484f-a1d3-fb99dfe776f0)
+---
 
+## 🧰 Technologies Used
 
+- 🔹 **Amazon DynamoDB** – NoSQL database
+- 🧠 **AWS Lambda** – Serverless compute to connect Athena and DynamoDB
+- 📊 **Amazon QuickSight** – Business intelligence dashboards
+- 🔍 **AWS Athena** – SQL query engine
+- 🧪 **AWS Glue** – Data catalog and schema detection
+- ☁️ **Amazon S3** – Spillover storage for Athena results
 
+---
+
+## 🌟 Features
+
+- ✅ **DynamoDB Table Setup** with partition & sort keys
+- ✅ **Lambda-Athena Integration** using DynamoDB Connector
+- ✅ **S3 Spill Location** for Athena query results
+- ✅ **IAM Role Configuration** to enable QuickSight access
+- ✅ **Data Import & Visualization** using:
+  - 🔹 **SPICE**
+  - 🔹 **Direct Query**
+  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/683ae8b3-f6e9-492b-81c9-292ad3cf05be" width="600">
+</p>
+
+- ✅ **Custom Dashboards**:
+  - Donut Charts
+  - Bar Charts
+  - Interactive Tables
+  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a8c4de0c-c85c-4f4b-ad2a-3f255b8cc01a" width="600">
+</p>
+
+- ✅ **Live Data Sync**: Reflects changes in DynamoDB in real time
+- 💲 **Cost Efficient**: Full setup costs about **$1.30**
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4a9749d5-1b4f-484f-a1d3-fb99dfe776f0" width="600">
+</p>
+
+---
+
+## 📦 Folder Structure (if needed)
+
+```plaintext
+DynamoDB Analytics Pipeline/
+├── lambda/                  # Lambda function code for Athena connector
+├── glue/                    # Glue crawlers or schema definitions
+├── templates/               # CloudFormation or setup templates
+├── dashboards/              # Screenshots or QuickSight exports
+└── README.md
